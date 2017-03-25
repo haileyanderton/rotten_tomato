@@ -22,7 +22,7 @@ c.writerow(['title', 'tomatometer', 'rating', 'released', 'genre', 'runtime'])
 # click the button exactly 151 times to get all 4826 titles
 
 #def load_page(html, bsObj):
-for n in range(10):
+for n in range(8):
     driver.find_element_by_css_selector('.btn.btn-secondary-rt.mb-load-btn').click()
     # make a random wait time between 1 and 10 seconds to look less bot-like
     s = randint(1, 12)
@@ -62,7 +62,6 @@ def get_movie_details(movie_list):
             # <div class="hometown"><span class="category">Birthplace:</span>
             # Barranquilla, Colombia</div>
         runtime = bsObj.find('time', text = re.compile(".*(minutes).?"))
-
         row = []
             # <div class="twitter_handle"><a
             # href="https://twitter.com/Olmesgarcia13"
@@ -71,7 +70,7 @@ def get_movie_details(movie_list):
             #print(score + '%')
             # need to get_text
             # need to add delay
-        movie_details = [title, tomatometer, rating, release_year, genre]
+        movie_details = [title, tomatometer, rating, release_year, genre, runtime]
         for detail in movie_details:
             try:
                 # write a new item into the list, row
